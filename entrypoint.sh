@@ -100,6 +100,10 @@ echo "+---------------------------------------------------------+"
 echo "|         Intro: https://github.com/cndocker              |"
 echo "+---------------------------------------------------------+"
 echo ""
+# sshd
+echo "Starting sshd..."
+echo "root:${ROOT_PASSWORD}" | chpasswd
+/usr/sbin/sshd -o PermitRootLogin=yes -o UseDNS=no
 # kcptunsocks-kcptunss
 if [[ "${RUNENV}" =~ ^[Kk][Cc][Pp][Tt][Uu][Nn][Ss][Oo][Cc][Kk][Ss]-[Kk][Cc][Pp][Tt][Uu][Nn][Ss][Ss]$ ]]; then
     echo "Starting Shadowsocks-libev..."
@@ -155,5 +159,3 @@ elif [[ "${RUNENV}" =~ ^[Ss][Ss]$ ]]; then
 else
     echo "RUNENV is ${RUNENV} setting error, start failed!"
 fi
-# sshd password
-echo "root:${ROOT_PASSWORD}" | chpasswd

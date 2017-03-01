@@ -27,10 +27,9 @@ RUN set -ex && \
     chown root:root ${KCPTUN_DIR}/* && \
     chmod 755 ${KCPTUN_DIR}/* && \
     ln -s ${KCPTUN_DIR}/* /bin/ && \
-# Install & start sshd
+# Install sshd
     apk add --no-cache openssh && \
     ssh-keygen -A && \
-    /usr/sbin/sshd -o PermitRootLogin=yes -o UseDNS=no && \
 # Install nload
     apk add --no-cache nload && \
 # Clean up
