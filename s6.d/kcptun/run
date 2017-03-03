@@ -1,0 +1,3 @@
+#!/bin/bash
+echo "Starting Kcptun for Shadowsocks-libev..."
+exec kcp-server -c ${KCPTUN_SS_CONF}
