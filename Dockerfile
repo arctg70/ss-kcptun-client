@@ -8,7 +8,7 @@ ENV SS_URL=https://github.com/shadowsocks/shadowsocks-libev.git \
     KCPTUN_DIR=/usr/local/kcp-server
 
 RUN apk add --no-cache pcre bash openssl s6 && \
-    apk add --no-cache --virtual TMP autoconf automake build-base wget curl tar libtool libsodium linux-headers openssl-dev pcre-dev git && \
+    apk add --no-cache --virtual TMP autoconf automake build-base wget curl tar gettext build-essential autoconf libtool libpcre3-dev asciidoc xmlto libev-dev libudns-dev automake libmbedtls-dev libsodium-dev libtool libsodium linux-headers openssl-dev pcre-dev git && \
 # Install shadowsocks
 #    curl -sSL $SS_URL | tar xz && \
     git clone $SS_URL && \
