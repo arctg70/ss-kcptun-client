@@ -8,7 +8,7 @@ ENV SS_URL=https://github.com/shadowsocks/shadowsocks-libev.git \
     KCPTUN_DIR=/usr/local/kcp-server
 
 RUN apk add --no-cache pcre bash openssl s6 && \
-    apk add --no-cache --virtual  autoconf automake build-base \
+    apk add --no-cache --virtual  TMP autoconf automake build-base \
             wget curl tar gettext autoconf libtool \
             asciidoc xmlto libev-dev automake \
             libsodium-dev libtool libsodium linux-headers \
