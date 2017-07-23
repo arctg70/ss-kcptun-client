@@ -1,6 +1,6 @@
 FROM alpine:3.5
 
-ENV SS_URL="https://github.com/shadowsocks/shadowsocks-libev/archive/v3.0.7.tar.gz" \
+ENV SS_URL=https://github.com/shadowsocks/shadowsocks-libev.git \
 #    SS_DIR=shadowsocks-libev-3.0.7 \
     SS_DIR=shadowsocks-libev \
     CONF_DIR=/usr/local/conf \
@@ -11,10 +11,11 @@ RUN apk add --no-cache pcre bash openssl s6 && \
     apk add --no-cache --virtual TMP autoconf automake build-base wget curl tar libtool libsodium linux-headers openssl-dev pcre-dev git && \
 # Install shadowsocks
 #    curl -sSL $SS_URL | tar xz && \
-    git clone https://github.com/shadowsocks/shadowsocks-libev.git && \
+    git clone $SS_URL && \
     cd $SS_DIR && \
     git submodule update --init --recursive && \
-    ./autogen.sh && \
+    ./autogen.sh && ./configure && make && \
+    make install && \
 #    ./configure --disable-documentation && \
 #    make install && \
     cd .. && \
