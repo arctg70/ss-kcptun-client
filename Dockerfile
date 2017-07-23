@@ -47,3 +47,4 @@ COPY run.sh /run.sh
 COPY s6.d /etc/s6.d
 RUN chmod +x /run.sh /etc/s6.d/*/* /etc/s6.d/.s6-svscan/*
 CMD ["/run.sh"]
+
