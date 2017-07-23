@@ -10,7 +10,7 @@ ENV SS_URL=https://github.com/shadowsocks/shadowsocks-libev.git \
 RUN apk add --no-cache pcre bash openssl s6 && \
     apk add --no-cache --virtual  TMP autoconf automake build-base \
             wget curl tar gettext autoconf libtool \
-            asciidoc xmlto libev-dev automake mbedtls-devel libmbedtls-dev \
+            asciidoc xmlto libev-dev automake libmbedtls \
             libsodium-dev libtool libsodium linux-headers \
             openssl-dev pcre-dev git && \
 # Install shadowsocks
