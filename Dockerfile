@@ -17,10 +17,10 @@ RUN apk add --no-cache pcre bash openssl s6 && \
     export MBEDTLS_VER=2.5.1 && \
     wget https://tls.mbed.org/download/mbedtls-$MBEDTLS_VER-gpl.tgz && \
     tar xvf mbedtls-$MBEDTLS_VER-gpl.tgz && \
-    pushd mbedtls-$MBEDTLS_VER && \
+    cd mbedtls-$MBEDTLS_VER && \
     make SHARED=1 CFLAGS=-fPIC && \
     make DESTDIR=/usr install && \
-    popd && \
+    cd - && \
     ldconfig && \
 # Install shadowsocks
 #    curl -sSL $SS_URL | tar xz && \
