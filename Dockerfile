@@ -16,7 +16,7 @@ RUN apk add --no-cache pcre bash openssl s6 && \
             openssl-dev pcre-dev git && \
 # Install shadowsocks
 #    curl -sSL $SS_URL | tar xz && \
-    git clone $SS_URL && \
+    git clone --init --recursive https://github.com/shadowsocks/shadowsocks-libev.git && \
     cd $SS_DIR && \
     git submodule update --init --recursive && \
     ./autogen.sh && ./configure && make && \
