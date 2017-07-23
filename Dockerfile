@@ -12,7 +12,7 @@ RUN apk add --no-cache pcre bash openssl s6 && \
             wget curl tar gettext autoconf libtool \
             asciidoc xmlto libev-dev automake  \
             libsodium-dev libtool libsodium linux-headers \
-            openssl-dev pcre-dev git && \
+            openssl-dev pcre-dev git pushd popd ldconfig && \
 # Installation of MbedTLS
     export MBEDTLS_VER=2.5.1 && \
     wget https://tls.mbed.org/download/mbedtls-$MBEDTLS_VER-gpl.tgz && \
