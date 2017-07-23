@@ -13,6 +13,15 @@ RUN apk add --no-cache pcre bash openssl s6 && \
             asciidoc xmlto libev-dev automake  \
             libsodium-dev libtool libsodium linux-headers \
             openssl-dev pcre-dev git && \
+# Installation of MbedTLS
+    export MBEDTLS_VER=2.5.1 && \
+    wget https://tls.mbed.org/download/mbedtls-$MBEDTLS_VER-gpl.tgz && \
+    tar xvf mbedtls-$MBEDTLS_VER-gpl.tgz && \
+    pushd mbedtls-$MBEDTLS_VER && \
+    make SHARED=1 CFLAGS=-fPIC && \
+    make DESTDIR=/usr install && \
+    popd && \
+    ldconfig && \
 # Install shadowsocks
 #    curl -sSL $SS_URL | tar xz && \
     git clone --recursive https://github.com/shadowsocks/shadowsocks-libev.git && \
