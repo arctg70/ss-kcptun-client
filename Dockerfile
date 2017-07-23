@@ -11,8 +11,9 @@ RUN apk add --no-cache pcre bash openssl s6 && \
 # Install shadowsocks
     curl -sSL $SS_URL | tar xz && \
     cd $SS_DIR && \
-    ./configure --disable-documentation && \
-    make install && \
+    ./autogen.sh
+#    ./configure --disable-documentation && \
+#    make install && \
     cd .. && \
     rm -rf $SS_DIR && \
 # Install kcptun
