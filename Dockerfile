@@ -1,15 +1,17 @@
 FROM alpine:3.5
 
 ENV SS_URL="https://github.com/shadowsocks/shadowsocks-libev/archive/v3.0.7.tar.gz" \
-    SS_DIR=shadowsocks-libev-3.0.7 \
+#    SS_DIR=shadowsocks-libev-3.0.7 \
+    SS_DIR=shadowsocks-libev \
     CONF_DIR=/usr/local/conf \
     KCPTUN_URL="https://github.com/xtaci/kcptun/releases/download/v20170221/kcptun-linux-amd64-20170221.tar.gz" \
     KCPTUN_DIR=/usr/local/kcp-server
 
 RUN apk add --no-cache pcre bash openssl s6 && \
-    apk add --no-cache --virtual TMP autoconf automake build-base wget curl tar libtool linux-headers openssl-dev pcre-dev && \
+    apk add --no-cache --virtual TMP autoconf automake build-base wget curl tar libtool linux-headers openssl-dev pcre-dev git && \
 # Install shadowsocks
-    curl -sSL $SS_URL | tar xz && \
+#    curl -sSL $SS_URL | tar xz && \
+    git clone https://github.com/shadowsocks/shadowsocks-libev.git \
     cd $SS_DIR && \
     ./autogen.sh \
 #    ./configure --disable-documentation && \
