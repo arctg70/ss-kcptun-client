@@ -18,7 +18,7 @@ docker run -ti --name=ss-kcptun \
 -e SS_SERVER_ADDR=0.0.0.0 \
 -e SS_SERVER_PORT=8388 \
 -e SS_PASSWORD=password \
--e SS_METHOD=aes-256-cfb \
+-e SS_METHOD=aes-256-gcm \
 -e SS_DNS_ADDR=8.8.8.8 \
 -e SS_UDP=true \
 -e SS_ONETIME_AUTH=true \
@@ -40,7 +40,7 @@ zyc9012/ss-kcptun:latest
 | SS_SERVER_ADDR     | 0.0.0.0              | 提供服务的IP地址，建议使用默认的0.0.0.0  |
 | SS_SERVER_PORT     | 8388                 | SS提供服务的端口，TCP和UDP协议。        |
 | SS_PASSWORD        | password             | 服务密码                              |
-| SS_METHOD          | aes-256-cfb          | 加密方式，可选参数：rc4-md5, aes-128-gcm, aes-192-gcm, aes-256-gcm, aes-128-cfb, aes-192-cfb, aes-256-cfb, aes-128-ctr, aes-192-ctr, aes-256-ctr, camellia-128-cfb, camellia-192-cfb, camellia-256-cfb, bf-cfb, chacha20-poly1305, chacha20-ietf-poly1305， salsa20, chacha20 and chacha20-ietf. |
+| SS_METHOD          | aes-256-gcm          | 加密方式，可选参数：rc4-md5, aes-128-gcm, aes-192-gcm, aes-256-gcm, aes-128-cfb, aes-192-cfb, aes-256-cfb, aes-128-ctr, aes-192-ctr, aes-256-ctr, camellia-128-cfb, camellia-192-cfb, camellia-256-cfb, bf-cfb, chacha20-poly1305, chacha20-ietf-poly1305， salsa20, chacha20 and chacha20-ietf. |
 | SS_TIMEOUT         | 600                  | 连接超时时间                          |
 | SS_DNS_ADDR        | 8.8.8.8              | SS服务器的DNS地址                     |
 | SS_UDP             | true                 | 开启SS服务器 UDP relay                |
