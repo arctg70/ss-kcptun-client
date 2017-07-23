@@ -11,7 +11,7 @@ RUN apk add --no-cache pcre bash openssl s6 && \
 # Install shadowsocks
     curl -sSL $SS_URL | tar xz && \
     cd $SS_DIR && \
-    ./autogen.sh
+    ./autogen.sh \
 #    ./configure --disable-documentation && \
 #    make install && \
     cd .. && \
