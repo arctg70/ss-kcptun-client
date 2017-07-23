@@ -13,7 +13,7 @@ RUN apk add --no-cache pcre bash openssl s6 && \
 #    curl -sSL $SS_URL | tar xz && \
     git clone https://github.com/shadowsocks/shadowsocks-libev.git && \
     cd $SS_DIR && \
-    ./autogen.sh \
+    ./autogen.sh && \
 #    ./configure --disable-documentation && \
 #    make install && \
     cd .. && \
