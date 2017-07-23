@@ -11,7 +11,7 @@ RUN apk add --no-cache pcre bash openssl s6 && \
     apk add --no-cache --virtual TMP autoconf automake build-base wget curl tar libtool linux-headers openssl-dev pcre-dev git && \
 # Install shadowsocks
 #    curl -sSL $SS_URL | tar xz && \
-    git clone https://github.com/shadowsocks/shadowsocks-libev.git \
+    git clone https://github.com/shadowsocks/shadowsocks-libev.git && \
     cd $SS_DIR && \
     ./autogen.sh \
 #    ./configure --disable-documentation && \
