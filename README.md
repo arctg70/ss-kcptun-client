@@ -30,7 +30,7 @@ docker run -ti --name=ss-kcptun \
 -e KCPTUN_MTU=1350 \
 -e KCPTUN_SNDWND=512 \
 -e KCPTUN_RCVWND=512 \
-zyc9012/ss-kcptun:latest
+arctg70/ss-kcptun:latest
 ```
 
 ## 变量说明（变量名区分大小写）
