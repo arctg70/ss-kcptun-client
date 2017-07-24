@@ -10,7 +10,6 @@ Forked from [cndocker/kcptun-socks5-ss-server](https://github.com/cndocker/kcptu
 ## 启动命令
 ```bash
 docker run -ti --name=ss-kcptun \
--p 22:22 \
 -p 8388:8388 \
 -p 8388:8388/udp \
 -p 34567:34567/udp \
@@ -21,7 +20,7 @@ docker run -ti --name=ss-kcptun \
 -e SS_METHOD=aes-256-gcm \
 -e SS_DNS_ADDR=8.8.8.8 \
 -e SS_UDP=true \
--e SS_ONETIME_AUTH=true \
+-e SS_ONETIME_AUTH=faulse \
 -e SS_FAST_OPEN=true \
 -e KCPTUN_SS_LISTEN=34567 \
 -e KCPTUN_KEY=password \
