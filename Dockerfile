@@ -3,7 +3,8 @@ FROM alpine:latest
 ENV SS_URL=https://github.com/shadowsocks/shadowsocks-libev.git \
     SS_DIR=shadowsocks-libev \
     CONF_DIR=/usr/local/conf \
-    KCPTUN_URL="https://github.com/xtaci/kcptun/releases/download/v20170221/kcptun-linux-amd64-20170221.tar.gz" \
+    KCPTUN_VER=20170525 \
+    KCPTUN_URL="https://github.com/xtaci/kcptun/releases/download/v$KCPTUN_VER/kcptun-linux-amd64-$KCPTUN_VER.tar.gz" \
     KCPTUN_DIR=/usr/local/kcp-server
 
 RUN apk add --no-cache pcre bash openssl s6 && \
