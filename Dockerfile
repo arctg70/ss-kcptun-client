@@ -1,7 +1,6 @@
 FROM alpine:latest
 
 ENV SS_URL=https://github.com/shadowsocks/shadowsocks-libev.git \
-#    SS_DIR=shadowsocks-libev-3.0.7 \
     SS_DIR=shadowsocks-libev \
     CONF_DIR=/usr/local/conf \
     KCPTUN_URL="https://github.com/xtaci/kcptun/releases/download/v20170221/kcptun-linux-amd64-20170221.tar.gz" \
@@ -14,24 +13,11 @@ RUN apk add --no-cache pcre bash openssl s6 && \
             libsodium-dev libtool libsodium linux-headers \
             openssl-dev pcre-dev git  && \
     apk add --no-cache --virtual Dependent pcre-dev mbedtls-dev libsodium-dev udns-dev libev-dev && \
-# Installation of MbedTLS
-#    export MBEDTLS_VER=2.5.1 && \
-#    wget https://tls.mbed.org/download/mbedtls-$MBEDTLS_VER-gpl.tgz && \
-#    tar xvf mbedtls-$MBEDTLS_VER-gpl.tgz && \
-#    cd mbedtls-$MBEDTLS_VER && \
-#    make SHARED=1 CFLAGS=-fPIC && \
-#    make DESTDIR=/usr install && \
-#    cd - && \
-#    ldconfig && \
-# Install shadowsocks
-#    curl -sSL $SS_URL | tar xz && \
-    git clone --recursive https://github.com/shadowsocks/shadowsocks-libev.git && \
+    git clone --recursive $SS_URL && \
     cd $SS_DIR && \
     git submodule update --init --recursive && \
     ./autogen.sh && ./configure && make && \
     make install && \
-#    ./configure --disable-documentation && \
-#    make install && \
     cd .. && \
     rm -rf $SS_DIR && \
 # Install kcptun
