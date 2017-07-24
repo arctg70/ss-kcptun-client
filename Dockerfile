@@ -1,9 +1,8 @@
 FROM alpine:latest
-
+ENV KCPTUN_VER 20170525 
 ENV SS_URL=https://github.com/shadowsocks/shadowsocks-libev.git \
     SS_DIR=shadowsocks-libev \
     CONF_DIR=/usr/local/conf \
-    KCPTUN_VER=20170525 \
     KCPTUN_URL="https://github.com/xtaci/kcptun/releases/download/v${KCPTUN_VER}/kcptun-linux-amd64-${KCPTUN_VER}.tar.gz" \
     KCPTUN_DIR=/usr/local/kcp-server
 
