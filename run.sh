@@ -8,7 +8,7 @@ export SS_PASSWORD=${SS_PASSWORD:-password}                          #"password"
 export SS_METHOD=${SS_METHOD:-aes-256-gcm}                           #"method":"aes-256-gcm",
 export SS_TIMEOUT=${SS_TIMEOUT:-600}                                 #"timeout":600,
 export SS_DNS_ADDR=${SS_DNS_ADDR:-8.8.8.8}                           #-d "8.8.8.8",
-export SS_UDP=${SS_UDP:-true}                                        #-u support,
+export SS_UDP=${SS_UDP:-faulse}                                        #-u support,
 export SS_ONETIME_AUTH=${SS_ONETIME_AUTH:-faulse}                      #-A support,
 export SS_FAST_OPEN=${SS_FAST_OPEN:-true}                            #--fast-open support,
 # ======= KCPTUN CONFIG ======
