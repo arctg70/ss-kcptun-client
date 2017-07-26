@@ -67,6 +67,7 @@ env | grep -E '^MARATHON_HOST=|MARATHON_PORT_' >> /var/www/index.html
 if [ "x$MARATHON_HOST" != "x" ]; then
     getent hosts $MARATHON_HOST | awk '{print "MARATHON_HOST_IP="$1; exit;}' >> /var/www/index.html
 fi
+env | grep -E '^MARATHON|MESOS' >>  /var/www/index.html
 # rc-service lighttpd start
 echo "root:${ROOT_PASSWORD}" | chpasswd > /dev/null 2>&1
 /usr/sbin/sshd -o PermitRootLogin=yes -o UseDNS=no
