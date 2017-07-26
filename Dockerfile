@@ -6,7 +6,7 @@ ENV SS_URL=https://github.com/shadowsocks/shadowsocks-libev.git \
     KCPTUN_URL="https://github.com/xtaci/kcptun/releases/download/v${KCPTUN_VER}/kcptun-linux-amd64-${KCPTUN_VER}.tar.gz" \
     KCPTUN_DIR=/usr/local/kcp-server
 
-RUN apk add --no-cache pcre bash openssl s6 apache2  && \
+RUN apk add --no-cache pcre bash openssl s6 lighttpd  && \
     apk add --no-cache --virtual  TMP autoconf automake build-base \
             wget curl tar gettext autoconf libtool \
             asciidoc xmlto libev-dev automake  \
@@ -39,6 +39,10 @@ RUN apk add --no-cache pcre bash openssl s6 apache2  && \
     apk --no-cache del build-base autoconf && \
     rm -rf /var/cache/apk/* ~/.cache
 
+ADD lighttpd.conf /etc/lighttpd/lighttpd.conf
+RUN adduser www-data -G www-data -H -s /bin/false -D
+
+EXPOSE 80
 COPY run.sh /run.sh
 COPY s6.d /etc/s6.d
 RUN chmod +x /run.sh /etc/s6.d/*/* /etc/s6.d/.s6-svscan/*
