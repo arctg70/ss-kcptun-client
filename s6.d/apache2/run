@@ -1,3 +1,0 @@
-#!/bin/bash
-echo "Starting apache2..."
-exec /usr/sbin/lighttpd -D -f /etc/lighttpd/lighttpd.conf
