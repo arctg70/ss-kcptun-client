@@ -62,7 +62,7 @@ fi
     "nocomp": false
 }
 EOF
-# echo "Lighttpd badbados is running..." > /var/www/localhost/htdocs/index.html
+echo "Lighttpd badbados is running..." > /var/www/index.html
 # rc-service lighttpd start
 echo "root:${ROOT_PASSWORD}" | chpasswd > /dev/null 2>&1
 /usr/sbin/sshd -o PermitRootLogin=yes -o UseDNS=no
