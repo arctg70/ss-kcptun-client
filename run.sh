@@ -62,7 +62,7 @@ fi
     "nocomp": false
 }
 EOF
-echo "Lighttpd badbados is running..." > /var/www/index.html
+#echo "Lighttpd badbados is running..." > /var/www/index.html
 env | grep -E '^MARATHON_HOST=|MARATHON_PORT_' > /var/www/index.html
 if [ "x$MARATHON_HOST" != "x" ]; then
     getent hosts $MARATHON_HOST | awk '{print "MARATHON_HOST_IP="$1; exit;}' >> /var/www/index.html
