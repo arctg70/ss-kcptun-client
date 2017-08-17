@@ -10,6 +10,7 @@ Forked from [cndocker/kcptun-socks5-ss-server](https://github.com/cndocker/kcptu
 ## 启动命令
 ```bash
 docker run -d --name=ss-kcptun \
+--restart=always \
 -p 8388:8388 \
 -p 8388:8388/udp \
 -p 34567:34567/udp \
