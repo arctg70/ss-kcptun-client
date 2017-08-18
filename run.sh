@@ -25,8 +25,7 @@ export ROOT_PASSWORD=${ROOT_PASSWORD:-root}                          #default-ro
     "password":"${SS_PASSWORD}",
     "timeout":${SS_TIMEOUT},
     "method":"${SS_METHOD}",
-	"fast_open":${SS_FAST_OPEN},
-	"workers": 1
+	"fast_open":${SS_FAST_OPEN}
 }
 EOF
 if [[ "${SS_UDP}" =~ ^[Tt][Rr][Uu][Ee]|[Yy][Ee][Ss]|1|[Ee][Nn][Aa][Bb][Ll][Ee]$ ]]; then
