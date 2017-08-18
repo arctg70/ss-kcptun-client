@@ -1,6 +1,5 @@
 #!/bin/bash
-export KCPTUN_SS_CONF="/usr/local/conf/kcptun_ss_config.json"
-#export SS_CONF="/usr/local/conf/ss_config.json"
+export KCPTUN_SS_CONF="/kcptun_ss_config.json"
 export SS_CONF="/ss_config.json"
 # ======= SS CONFIG ======
 export SS_SERVER_ADDR=${SS_SERVER_ADDR:-127.0.0.1}                     #"server": "0.0.0.0",
@@ -25,7 +24,9 @@ export ROOT_PASSWORD=${ROOT_PASSWORD:-root}                          #default-ro
     "local_port":${SS_LOCAL_PORT},
     "password":"${SS_PASSWORD}",
     "timeout":${SS_TIMEOUT},
-    "method":"${SS_METHOD}"
+    "method":"${SS_METHOD}",
+	"fast_open":${SS_FAST_OPEN},
+	"workers": 1
 }
 EOF
 if [[ "${SS_UDP}" =~ ^[Tt][Rr][Uu][Ee]|[Yy][Ee][Ss]|1|[Ee][Nn][Aa][Bb][Ll][Ee]$ ]]; then
