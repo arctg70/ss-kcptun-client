@@ -14,6 +14,7 @@ docker run -d --name=ss-kcptun \
 -p 8388:8388 \
 -p 8388:8388/udp \
 -p 34567:34567/udp \
+-p 8080:80 \
 -e ROOT_PASSWORD=root \
 -e SS_SERVER_ADDR=0.0.0.0 \
 -e SS_SERVER_PORT=8388 \
