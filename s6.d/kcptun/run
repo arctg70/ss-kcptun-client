@@ -1,3 +1,11 @@
 #!/bin/bash
 echo "Starting Kcptun for Shadowsocks-libev..."
-exec kcp-server -c ${KCPTUN_SS_CONF}
+#exec kcp-server -c ${KCPTUN_SS_CONF}
+exec /opt/kcptun/client_linux_amd64 -r "${KCPTUN_REMOTE_SERVER}:${KCPTUN_REMOTE_PORT}" \
+            -l ":${KCPTUN_LOCAL_PORT}" \
+            --crypt "${KCPTUN_CRYPT}" \
+            --key "${KCPTUN_KEY}" \
+            --mtu ${KCPTUN_MTU} \
+            --sndwnd ${KCPTUN_SNDWND} \
+            --rcvwnd ${KCPTUN_RCVWND} \
+            --mode "${KCPTUN_MODE}"

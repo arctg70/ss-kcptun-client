@@ -21,15 +21,21 @@ RUN apk add --no-cache pcre bash openssl s6 lighttpd  && \
     cd .. && \
     rm -rf $SS_DIR && \
 # Install kcptun
-    mkdir -p ${CONF_DIR} && \
-    mkdir -p ${KCPTUN_DIR} && cd ${KCPTUN_DIR} && \
-    curl -sSL $KCPTUN_URL | tar xz -C ${KCPTUN_DIR}/ && \
-    mv ${KCPTUN_DIR}/server_linux_amd64 ${KCPTUN_DIR}/kcp-server && \
-    rm -f ${KCPTUN_DIR}/client_linux_amd64 && \
-    chown root:root ${KCPTUN_DIR}/* && \
-    chmod 755 ${KCPTUN_DIR}/* && \
-    ln -s ${KCPTUN_DIR}/* /bin/ && \
-# Install sshd
+    apk add --no-cache --virtual .build-deps curl \
+    && mkdir -p /opt/kcptun \
+    && cd /opt/kcptun \
+    && curl -fSL https://github.com/xtaci/kcptun/releases/download/v$KCPTUN_VER/kcptun-linux-amd64-$KCPTUN_VER.tar.gz | tar xz \
+    && cd ~ \
+    && apk del .build-deps  &&\
+#    mkdir -p ${CONF_DIR} && \
+#    mkdir -p ${KCPTUN_DIR} && cd ${KCPTUN_DIR} && \
+#    curl -sSL $KCPTUN_URL | tar xz -C ${KCPTUN_DIR}/ && \
+#    mv ${KCPTUN_DIR}/server_linux_amd64 ${KCPTUN_DIR}/kcp-server && \
+#    rm -f ${KCPTUN_DIR}/client_linux_amd64 && \
+#    chown root:root ${KCPTUN_DIR}/* && \
+#    chmod 755 ${KCPTUN_DIR}/* && \
+#    ln -s ${KCPTUN_DIR}/* /bin/ && \
+	# Install sshd
     apk add --no-cache openssh && \
     ssh-keygen -A && \
 # Install nload

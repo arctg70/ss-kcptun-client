@@ -2,8 +2,9 @@
 export KCPTUN_SS_CONF="/usr/local/conf/kcptun_ss_config.json"
 export SS_CONF="/usr/local/conf/ss_config.json"
 # ======= SS CONFIG ======
-export SS_SERVER_ADDR=${SS_SERVER_ADDR:-0.0.0.0}                     #"server": "0.0.0.0",
-export SS_SERVER_PORT=${SS_SERVER_PORT:-8388}                        #"server_port": 8388,
+export SS_SERVER_ADDR=${SS_SERVER_ADDR:-127.0.0.1}                     #"server": "0.0.0.0",
+export SS_SERVER_PORT=${SS_SERVER_PORT:-8999}                        #"server_port": 8388,
+export SS_LOCAL_PORT=${SS_LOCAL_PORT:-1080}  
 export SS_PASSWORD=${SS_PASSWORD:-password}                          #"password":"password",
 export SS_METHOD=${SS_METHOD:-aes-256-gcm}                           #"method":"aes-256-gcm",
 export SS_TIMEOUT=${SS_TIMEOUT:-600}                                 #"timeout":600,
@@ -12,7 +13,9 @@ export SS_UDP=${SS_UDP:-faulse}                                        #-u suppo
 export SS_ONETIME_AUTH=${SS_ONETIME_AUTH:-faulse}                      #-A support,
 export SS_FAST_OPEN=${SS_FAST_OPEN:-true}                            #--fast-open support,
 # ======= KCPTUN CONFIG ======
-export KCPTUN_SS_LISTEN=${KCPTUN_SS_LISTEN:-34567}                   #"listen": ":34567"
+export KCPTUN_REMOTE_SERVER=${KCPTUN_REMOTE_SERVER:-0.0.0.0}                   #"listen": ":34567"
+export KCPTUN_REMOTE_PORT=${KCPTUN_REMOTE_PORT:-34567}
+export KCPTUN_LOCAL_PORT=${KCPTUN_LOCAL_PORT:-8999}
 export KCPTUN_KEY=${KCPTUN_KEY:-password}                            #"key": "password",
 export KCPTUN_CRYPT=${KCPTUN_CRYPT:-aes}                             #"crypt": "aes",
 export KCPTUN_MODE=${KCPTUN_MODE:-fast2}                             #"mode": "fast2",
@@ -26,8 +29,8 @@ export ROOT_PASSWORD=${ROOT_PASSWORD:-root}                          #default-ro
 {
     "server":"${SS_SERVER_ADDR}",
     "server_port":${SS_SERVER_PORT},
-    "local_address":"127.0.0.1",
-    "local_port":1080,
+    "local_address":"0.0.0.0",
+    "local_port":${SS_LOCAL_PORT},
     "password":"${SS_PASSWORD}",
     "timeout":${SS_TIMEOUT},
     "method":"${SS_METHOD}"

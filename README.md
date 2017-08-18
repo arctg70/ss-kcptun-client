@@ -9,13 +9,12 @@ Forked from [cndocker/kcptun-socks5-ss-server](https://github.com/cndocker/kcptu
 # 使用
 ## 启动命令
 ```bash
-docker run -d --name=ss-kcptun \
+docker run -d --name=ss-kcptun-client \
 --restart=always \
 -p 8388:8388 \
 -p 8388:8388/udp \
 -p 34567:34567/udp \
 -p 8080:80 \
--e ROOT_PASSWORD=root \
 -e SS_SERVER_ADDR=0.0.0.0 \
 -e SS_SERVER_PORT=8388 \
 -e SS_PASSWORD=password \
@@ -31,7 +30,7 @@ docker run -d --name=ss-kcptun \
 -e KCPTUN_MTU=1350 \
 -e KCPTUN_SNDWND=512 \
 -e KCPTUN_RCVWND=512 \
-arctg70/ss-kcptun
+arctg70/ss-kcptun-client
 ```
 
 ## 变量说明（变量名区分大小写）
