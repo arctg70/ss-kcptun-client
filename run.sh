@@ -1,6 +1,7 @@
 #!/bin/bash
 export KCPTUN_SS_CONF="/usr/local/conf/kcptun_ss_config.json"
-export SS_CONF="/usr/local/conf/ss_config.json"
+#export SS_CONF="/usr/local/conf/ss_config.json"
+export SS_CONF="/ss_config.json"
 # ======= SS CONFIG ======
 export SS_SERVER_ADDR=${SS_SERVER_ADDR:-127.0.0.1}                     #"server": "0.0.0.0",
 export SS_SERVER_PORT=${SS_SERVER_PORT:-8999}                        #"server_port": 8388,
