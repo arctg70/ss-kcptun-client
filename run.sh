@@ -12,16 +12,7 @@ export SS_DNS_ADDR=${SS_DNS_ADDR:-8.8.8.8}                           #-d "8.8.8.
 export SS_UDP=${SS_UDP:-faulse}                                        #-u support,
 export SS_ONETIME_AUTH=${SS_ONETIME_AUTH:-faulse}                      #-A support,
 export SS_FAST_OPEN=${SS_FAST_OPEN:-true}                            #--fast-open support,
-# ======= KCPTUN CONFIG ======
-export KCPTUN_REMOTE_SERVER=${KCPTUN_REMOTE_SERVER:-0.0.0.0}                   #"listen": ":34567"
-export KCPTUN_REMOTE_PORT=${KCPTUN_REMOTE_PORT:-34567}
-export KCPTUN_LOCAL_PORT=${KCPTUN_LOCAL_PORT:-8999}
-export KCPTUN_KEY=${KCPTUN_KEY:-password}                            #"key": "password",
-export KCPTUN_CRYPT=${KCPTUN_CRYPT:-aes}                             #"crypt": "aes",
-export KCPTUN_MODE=${KCPTUN_MODE:-fast2}                             #"mode": "fast2",
-export KCPTUN_MTU=${KCPTUN_MTU:-1350}                                #"mtu": 1350,
-export KCPTUN_SNDWND=${KCPTUN_SNDWND:-512}                           #"sndwnd": 512,
-export KCPTUN_RCVWND=${KCPTUN_RCVWND:-512}                           #"rcvwnd": 512,
+
 # ======= ROOT CONFIG ======
 export ROOT_PASSWORD=${ROOT_PASSWORD:-root}                          #default-root-password: root
 
@@ -52,6 +43,16 @@ else
     export SS_FAST_OPEN_FLAG=""
 fi
 
+# ======= KCPTUN CONFIG ======
+export KCPTUN_REMOTE_SERVER=${KCPTUN_REMOTE_SERVER:-0.0.0.0}                   #"listen": ":34567"
+export KCPTUN_REMOTE_PORT=${KCPTUN_REMOTE_PORT:-34567}
+export KCPTUN_LOCAL_PORT=${KCPTUN_LOCAL_PORT:-8999}
+export KCPTUN_KEY=${KCPTUN_KEY:-password}                            #"key": "password",
+export KCPTUN_CRYPT=${KCPTUN_CRYPT:-aes}                             #"crypt": "aes",
+export KCPTUN_MODE=${KCPTUN_MODE:-fast2}                             #"mode": "fast2",
+export KCPTUN_MTU=${KCPTUN_MTU:-1350}                                #"mtu": 1350,
+export KCPTUN_SNDWND=${KCPTUN_SNDWND:-512}                           #"sndwnd": 512,
+export KCPTUN_RCVWND=${KCPTUN_RCVWND:-512}                           #"rcvwnd": 512,
 [ ! -f ${KCPTUN_SS_CONF} ] && cat > ${KCPTUN_SS_CONF}<<-EOF
 {
     "listen": ":${KCPTUN_SS_LISTEN}",
@@ -65,6 +66,7 @@ fi
     "nocomp": false
 }
 EOF
+
 #echo "Lighttpd badbados is running..." > /var/www/index.html
 env | grep -E '^MARATHON_HOST=|MARATHON_PORT_' > /var/www/index.html
 if [ "x$MARATHON_HOST" != "x" ]; then
