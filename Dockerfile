@@ -53,8 +53,7 @@ RUN apk upgrade --update && \
 	rm -rf simple-obfs && \
 
 # Install kcptun
-    apk add --no-cache --virtual .build-deps curl \
-    && mkdir -p /opt/kcptun \
+    mkdir -p /opt/kcptun \
     && cd /opt/kcptun \
     && curl -fSL https://github.com/xtaci/kcptun/releases/download/v$KCPTUN_VER/kcptun-linux-amd64-$KCPTUN_VER.tar.gz | tar xz \
     && cd ~ \
@@ -67,14 +66,17 @@ RUN apk upgrade --update && \
 #    chown root:root ${KCPTUN_DIR}/* && \
 #    chmod 755 ${KCPTUN_DIR}/* && \
 #    ln -s ${KCPTUN_DIR}/* /bin/ && \
-	# Install sshd
+
+# Install sshd
     apk add --no-cache openssh && \
     ssh-keygen -A && \
+
 # Install nload
     apk add --no-cache nload && \
+
 # Clean up
-    apk --no-cache del --virtual TMP && \
-    apk --no-cache del build-base autoconf && \
+    apk del TMP && \
+    apk del .build-base  && \
     rm -rf /var/cache/apk/* ~/.cache
 
 ADD lighttpd.conf /etc/lighttpd/lighttpd.conf
